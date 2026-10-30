@@ -1,0 +1,190 @@
+package pages;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver; 
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+public class page {
+
+	WebDriver driver; 
+	WebDriverWait wait;
+
+	public page(WebDriver driver) {
+		this.driver = driver;
+		PageFactory.initElements(driver, this);
+	}
+	
+	@FindBy(xpath = "(//div[text()='Infoez'])[1]")
+	public WebElement Homepage;
+	
+	@FindBy(xpath = "(//button[text()='Sign in'])[1]")
+	public WebElement signinBtn;
+	
+	@FindBy(id = "email" )
+	public WebElement Email;
+	
+	@FindBy(id = "password")
+	public WebElement Password;
+	
+	@FindBy(xpath = "(//button[text()='Sign in'])[2]")
+	public WebElement Signin;
+	
+	@FindBy(xpath = "//div[text()='Welcome back!']")
+	public WebElement Welcomeback;
+	
+	@FindBy(xpath = "//a[text()='Explore']")
+	public WebElement Explore;
+	
+	@FindBy(xpath = "//a[text()='Near me']")
+	public WebElement Nearme;
+	
+	@FindBy(xpath = "(//a[text()='How it works'])[2]")
+	public WebElement Howitswork;
+	
+	@FindBy(xpath = "(//a[text()='Pricing'])[1]")
+	public WebElement Pricing;
+	
+	@FindBy(xpath = "//input[@placeholder='Search…']")
+	public WebElement Searchbox;
+	
+	@FindBy(xpath ="//input[@placeholder='City']")
+	public WebElement LocationSearchbox;
+	
+	@FindBy(xpath = "//button[text()='Search']")
+	public WebElement Searchbutton;
+	
+	@FindBy(xpath = "//*[@id=\"root\"]/div/main/div/div[2]/aside/div[2]/div[1]/button")
+	public WebElement Category;
+	
+	@FindBy(xpath = "//*[@id=\"root\"]/div/main/div/div[2]/aside/div[2]/div[2]/button")
+	public WebElement sortby;
+	
+	@FindBy(xpath = "//*[@id=\"root\"]/div/main/div/div[2]/aside/div[2]/div[3]/button")
+	public WebElement minrating;
+	
+	@FindBy(xpath = "//p[text()='Legendary dum biryani with slow-cooked flavour. Family recipes since 1978.']")
+	public WebElement Businesscard;
+	
+	@FindBy(xpath = "//*[@id=\"root\"]/div/main/div/div[1]/div[2]/div[4]/button[1]")
+	private WebElement Sendenquiryoption;
+	
+	@FindBy(xpath = "//*[@id=\"radix-:rfs:\"]/div[2]/div[1]/input")
+	private WebElement SendenquiryName;
+	
+	@FindBy(xpath = "//*[@id=\"radix-:rfs:\"]/div[2]/div[2]/input")
+	private WebElement SendenquiryEmail;
+	
+	@FindBy(xpath = "//*[@id=\"radix-:rfs:\"]/div[2]/div[3]/input")
+	private WebElement Sendenquiryphone;
+	
+	@FindBy(xpath = "//*[@id=\"radix-:rfs:\"]/div[2]/div[4]/textarea")
+	private WebElement Sendenquirymsg;
+	
+	@FindBy(xpath = "//*[@id=\"radix-:rfs:\"]/div[3]/button")
+	private WebElement Sendenquirybutton;	
+	
+	 public WebElement getEmail() {
+	        return Email;
+	    }
+	 
+     public WebElement getPassword() {
+	        return Password;
+	    }
+
+     public WebElement getSigninButton() {
+	        return Signin;
+     }
+     
+     public WebElement getExplore() {
+    	 return Explore;
+     }
+     
+     public WebElement getNearme() {
+    	 return Nearme;
+     }
+    
+     public WebElement getHowitsworks() {
+    	 return Howitswork;
+     }
+     
+     public WebElement getPricing() {
+    	 return Pricing;
+     }
+     
+     public WebElement getSearchbox() {
+    	 return Searchbox;
+     }
+     
+     public WebElement getSearchbox1() {
+    	 return LocationSearchbox;
+     }
+    	 
+     
+     
+     public WebElement getSearchbutton() {
+    	 return Searchbutton;
+     }
+     
+     public WebElement getCategory() {
+    	 return Category;
+     }
+     
+     public WebElement getSortby() {
+    	 return sortby;
+     }
+     
+     public WebElement getMinrating() {
+    	 return minrating;
+    	 
+     }
+     
+     public WebElement getSendenquiry() {
+    	 return Sendenquiryoption;
+     }
+     
+     public WebElement getSendenquiryName() {
+    	 return SendenquiryName;
+     }
+     
+     public WebElement getSendenquiryEmail() {
+    	 return SendenquiryEmail;
+     }
+     
+     public WebElement getSendenquiryphone() {
+    	 return Sendenquiryphone;
+     }
+     
+     public WebElement getSendenquiryMsg() {
+    	 return Sendenquirymsg;
+     }
+     
+     public WebElement getSendenquirybutton() {
+    	 return Sendenquirybutton;
+     }
+     public void clickExplore() {
+         wait.until(ExpectedConditions.elementToBeClickable(Explore)).click();
+     }
+     
+     public void clickNearme() {
+         wait.until(ExpectedConditions.elementToBeClickable(Nearme)).click();     
+     }
+     
+     public void clickHowitsworks() {
+         wait.until(ExpectedConditions.elementToBeClickable(Howitswork)).click();
+     }
+     public void clickPricing() {
+         wait.until(ExpectedConditions.elementToBeClickable(Pricing)).click();    
+     }
+      
+      public boolean isHomePageDisplayed(){
+
+          return Signin.isDisplayed();
+     }
+
+	 
+
+}
