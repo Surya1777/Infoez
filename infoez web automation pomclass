@@ -48,10 +48,10 @@ public class page {
 	@FindBy(xpath = "(//a[text()='Pricing'])[1]")
 	public WebElement Pricing;
 	
-	@FindBy(xpath = "//input[@placeholder='Search…']")
+	@FindBy(xpath = "//*[@id=\"root\"]/div/main/div/div[1]/form/div[1]/input")
 	public WebElement Searchbox;
 	
-	@FindBy(xpath ="//input[@placeholder='City']")
+	@FindBy(xpath ="//*[@id=\"root\"]/div/main/div/div[1]/form/div[2]/input")
 	public WebElement LocationSearchbox;
 	
 	@FindBy(xpath = "//button[text()='Search']")
@@ -66,20 +66,20 @@ public class page {
 	@FindBy(xpath = "//*[@id=\"root\"]/div/main/div/div[2]/aside/div[2]/div[3]/button")
 	public WebElement minrating;
 	
-	@FindBy(xpath = "//p[text()='Legendary dum biryani with slow-cooked flavour. Family recipes since 1978.']")
+	@FindBy(xpath = "(//div[@class='p-5 flex-1 flex flex-col'])[29]")
 	public WebElement Businesscard;
 	
 	@FindBy(xpath = "//*[@id=\"root\"]/div/main/div/div[1]/div[2]/div[4]/button[1]")
-	private WebElement Sendenquiryoption;
+	public WebElement Sendenquiryoption;
 	
 	@FindBy(xpath = "//*[@id=\"radix-:rfs:\"]/div[2]/div[1]/input")
-	private WebElement SendenquiryName;
+	public WebElement SendenquiryName;
 	
 	@FindBy(xpath = "//*[@id=\"radix-:rfs:\"]/div[2]/div[2]/input")
-	private WebElement SendenquiryEmail;
+	public WebElement SendenquiryEmail;
 	
 	@FindBy(xpath = "//*[@id=\"radix-:rfs:\"]/div[2]/div[3]/input")
-	private WebElement Sendenquiryphone;
+	public WebElement Sendenquiryphone;
 	
 	@FindBy(xpath = "//*[@id=\"radix-:rfs:\"]/div[2]/div[4]/textarea")
 	private WebElement Sendenquirymsg;
