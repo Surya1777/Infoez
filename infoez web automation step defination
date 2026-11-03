@@ -79,14 +79,14 @@ public class Stepdefination extends Baseclass{
 
 	@And("User enter valid business in the search box")
 	public void user_enter_valid_business_in_the_search_box() {
-	    click(p.Searchbox);
+	    
 	    sendKeys(p.Searchbox,"Iron peak gym");
 	}
 	
 	@And("User enter valid Location in the search box")
 	public void user_enter_valid_location_in_the_search_box() {
-	    click(p.Searchbutton);
-	    sendKeys(p.Searchbox, "Bengaluru");
+	   
+	    sendKeys(p.LocationSearchbox, "Bengaluru");
 	}
 	
 	@When("User clicks the Search button")
@@ -101,7 +101,8 @@ public class Stepdefination extends Baseclass{
 	
 	@When("User is on Explore")
 	public void user_is_on_explore() {
-	    driver.findElement(By.xpath("//*[@id=\"root\"]/div/header/div/nav/a[1]")).click();
+	    click(p.Homepage);
+	    click(p.Explore);
 	}
 
 	
