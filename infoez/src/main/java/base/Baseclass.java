@@ -1,0 +1,222 @@
+package base;
+
+import java.time.Duration;
+import java.util.HashMap;
+import java.util.Map;
+
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+ 
+
+public class Baseclass {
+
+	
+	public static WebDriver driver;
+	
+	
+	public static WebDriver browserLaunch() {
+		WebDriverManager.chromedriver().setup();
+		ChromeOptions options = new ChromeOptions();
+		Map<String, Object> prefs = new HashMap<>();
+		prefs.put("profile.password_manager_leak_detection", false);
+		prefs.put("credentials_enable_service", false);
+		prefs.put("profile.password_manager_enabled", false);
+		options.setExperimentalOption("prefs", prefs);
+		driver = new ChromeDriver(options);
+		wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+		driver.get("https://d2mojgetgp5xie.cloudfront.net/search");
+		return driver;
+	}
+	
+	public static void maximize() {
+		driver.manage().window().maximize();
+	}
+	
+	public static void openUrl(String url) {
+		driver.get(url);
+	}
+	
+	public static void close() {
+		driver.close();
+	}
+	public static void quit() {
+		driver.quit();
+	}
+	public static void navigateTo(String url) {
+        driver.navigate().to(url);
+    }
+	
+	public static String getCurrentUrl() {
+	    return driver.getCurrentUrl();
+	}
+
+	public static String getTitle() {
+	    return driver.getTitle();
+	}
+	
+	public static void back() {
+		driver.navigate().back();
+	}
+	
+	public static void forward() {
+	    driver.navigate().forward();
+	}
+	
+	public static void refresh() {
+	    driver.navigate().refresh();
+	}
+	
+	 public static void click(WebElement element) {
+		 element.click();
+	}
+
+	 public static void sendKeys(WebElement element, String value) {
+         element.clear();
+		 element.sendKeys(value);
+    }
+
+	 public static void clear(WebElement element) {
+	    element.clear();
+	}
+	  
+	 public static String getText(WebElement element) {
+	    return element.getText();
+	}
+	 
+	 public static String getAttribute(WebElement element, String attribute) {
+	    return element.getAttribute(attribute);
+	}
+
+	 public static boolean isDisplayed(WebElement element) {
+		 return element.isDisplayed();
+	}
+
+	 public static boolean isEnabled(WebElement element) {
+	     return element.isEnabled();
+	}
+	 
+	 public static boolean isSelected(WebElement element) {
+	     return element.isSelected();
+	}
+	 
+	 public static void submit(WebElement element) {
+		 element.submit();
+	}
+	 
+	 public static WebDriverWait wait;
+	 public static void implicitWait(int seconds) {
+		 driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(seconds));
+	}
+	 
+	 public static WebDriver browserLaunch1() {
+		    driver = new ChromeDriver();
+		    driver.manage().window().maximize();
+		    driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+		    return driver;
+		}
+	 	   
+	   public static void selectByVisibleText(WebElement element, String text) {
+	        Select s = new Select(element);
+	        s.selectByVisibleText(text);
+	}
+	   
+	   public static void selectByValue(WebElement element, String value) {
+	        Select s = new Select(element);
+	        s.selectByValue(value);
+	}
+
+	   public static void selectByIndex(WebElement element, int index) {
+	        Select s = new Select(element);
+	        s.selectByIndex(index);
+    }
+
+	   public static String getFirstSelectedOption(WebElement element) {
+	        Select s = new Select(element);
+	        return s.getFirstSelectedOption().getText();
+    }
+	   public static void getAllOptions(WebElement element) {
+	        Select s = new Select(element);
+
+	        for (WebElement option : s.getOptions()) {
+	            System.out.println(option.getText());
+	        
+	        }
+    }
+
+	    public static boolean isMultiple(WebElement element) {
+	        Select s = new Select(element);
+	        return s.isMultiple();
+	}
+
+
+		public static void dragAndDrop(WebElement source , WebElement target) {    
+			Actions a = new Actions(driver);
+			a.dragAndDrop(source, target).perform();
+		}
+		
+		public static void click1(WebElement searchBox) {
+			searchBox.click();
+		}
+		
+		public static void sendKeys1(WebElement textBox , String value) {
+			textBox.clear();
+			textBox.sendKeys(value);
+		}
+		
+		 public static void clickByJS(WebElement element) {
+		        JavascriptExecutor js = (JavascriptExecutor) driver;
+		        js.executeScript("arguments[0].click();", element);
+		}
+		 
+		 public static void sendKeysByJS(WebElement element, String value) {
+		        JavascriptExecutor js = (JavascriptExecutor) driver;
+		        js.executeScript("arguments[0].value=arguments[1];", element, value);
+		}
+
+		 public static void scrollToElement(WebElement element) {
+
+			    JavascriptExecutor js = (JavascriptExecutor) driver;
+
+			    js.executeScript(
+			        "arguments[0].scrollIntoView({behavior:'smooth', block:'center'});",
+			        element
+			    );
+			}
+
+		 public static void scrollToBottom() {
+		       JavascriptExecutor js = (JavascriptExecutor) driver;
+	        js.executeScript("window.scrollTo(0,document.body.scrollHeight);");
+	    }
+
+		 public static void scrollToTop() {
+			JavascriptExecutor js = (JavascriptExecutor) driver;
+	        js.executeScript("window.scrollTo(0,0);");
+	    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
