@@ -31,7 +31,7 @@ Then results should be displayed
 Scenario: Verify the send enquiry
 Given User clicks Send enquiry  
 And User enters valid enquiry 
-Then Enquiry send successfully   
+Then Enquiry send successfully    
 
 
 
